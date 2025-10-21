@@ -5,7 +5,7 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 public class SparkSQL03_SQL {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         // TODO 构建环境对象
         //      Spark在结构化数据的处理场景中对核心功能，环境进行了封装
@@ -32,6 +32,8 @@ public class SparkSQL03_SQL {
 
         // TODO 展示数据模型的效果
         sqlDS.show();
+
+        Thread.sleep(1000000);
 
 
         // TODO 释放资源

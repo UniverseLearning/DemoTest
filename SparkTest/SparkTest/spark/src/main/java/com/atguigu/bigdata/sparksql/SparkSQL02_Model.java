@@ -5,6 +5,8 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
+import java.util.List;
+
 public class SparkSQL02_Model {
     public static void main(String[] args) {
 
@@ -24,6 +26,10 @@ public class SparkSQL02_Model {
         //final RDD<Row> rdd = ds.rdd();
 
 
+        List<Row> rows = ds.collectAsList();
+        for (Row row : rows) {
+            System.out.println(row);
+        }
 
 
 

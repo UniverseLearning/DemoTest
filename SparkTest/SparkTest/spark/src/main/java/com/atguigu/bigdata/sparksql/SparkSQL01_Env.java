@@ -16,7 +16,7 @@ public class SparkSQL01_Env {
         conf.setAppName("SparkSQL");
         SparkContext sc = new SparkContext(conf);
 
-//        final JavaSparkContext jsc = new JavaSparkContext(conf);
+        final JavaSparkContext jsc = new JavaSparkContext(conf);
 
         final SparkSession sparkSession = new SparkSession(sc);
 

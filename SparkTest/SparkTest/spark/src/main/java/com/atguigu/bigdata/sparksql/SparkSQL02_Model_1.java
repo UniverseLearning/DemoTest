@@ -32,7 +32,7 @@ public class SparkSQL02_Model_1 {
         // TODO Dataframe
 //        ds.foreach(
 //                row -> {
-//                    System.out.println(row.getInt(2));
+//                    System.out.println(row.getLong(1));
 //                }
 //        );
 
@@ -41,7 +41,7 @@ public class SparkSQL02_Model_1 {
 
         userDS.foreach(
                 user -> {
-                    System.out.println(user.getName());
+                    System.out.println(user.getAge());
                 }
         );
 
@@ -49,34 +49,5 @@ public class SparkSQL02_Model_1 {
         // TODO 释放资源
         sparkSession.close();
 
-    }
-}
-class User implements Serializable {
-    private int id;
-    private int age;
-    private String name;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
