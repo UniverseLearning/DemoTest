@@ -38,7 +38,7 @@ public class KafkaConsumerOffsetTest {
 
         boolean flg = true;
         while ( flg ) {
-            consumer.poll(Duration.ofMillis(100));
+            consumer.poll(Duration.ofMillis(1000));
             final Set<TopicPartition> assignment = consumer.assignment();
             if ( assignment != null && !assignment.isEmpty() ) {
                 for (TopicPartition topicPartition : assignment) {

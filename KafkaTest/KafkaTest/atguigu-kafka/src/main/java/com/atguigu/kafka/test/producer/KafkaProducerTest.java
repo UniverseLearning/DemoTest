@@ -1,4 +1,6 @@
 package com.atguigu.kafka.test.producer;
+import com.atguigu.kafka.test.interceptor.ValueInterceptor;
+import com.atguigu.kafka.test.partitioner.MyPartitioner;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -17,13 +19,17 @@ public class KafkaProducerTest {
         configMap.put(
                 ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
                 "org.apache.kafka.common.serialization.StringSerializer");
+
+        configMap.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, ValueInterceptor.class.getName());
+        configMap.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, MyPartitioner.class.getName());
+
         // TODO 创建Kafka生产者对象，建立Kafka连接
         //      构造对象时，需要传递配置参数
         KafkaProducer<String, String> producer = new KafkaProducer<>(configMap);
         // TODO 准备数据,定义泛型
         //      构造对象时需要传递 【Topic主题名称】，【Key】，【Value】三个参数
         ProducerRecord<String, String> record = new ProducerRecord<String, String>(
-                "test", "key1", "value1"
+                "test", "3", "value4"
         );
         // TODO 生产（发送）数据
         producer.send(record);

@@ -34,7 +34,8 @@ public class KafkaConsumerTest {
         while ( true ) {
             // TODO 每隔100毫秒，抓取一次数据
             ConsumerRecords<String, String> records =
-                    consumer.poll(Duration.ofMillis(100));
+                    consumer.poll(Duration.ofMillis(1000));
+            System.out.println("--------");
             // TODO 打印抓取的数据
             for (ConsumerRecord<String, String> record : records) {
                 System.out.println("K = " + record.key() + ", V = " + record.value());
