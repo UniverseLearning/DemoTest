@@ -38,5 +38,10 @@ public class PhoenixClient {
         // 由于 Phoenix 框架内部需要获取一个 HBase 连接,所以会延迟关闭
         // 不影响后续的代码执行
         System.out.println("hello");
+
+        /**
+         * 需要把hbase的依赖都去掉，否则冲突
+         *
+         */
     }
 }
